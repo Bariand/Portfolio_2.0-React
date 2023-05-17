@@ -5,12 +5,50 @@ import ImgFourBlog from './Images/img-four-blog.png';
 import ImgFourTask from './Images/img-four-task.png';
 import ImgDesignThinking from './Images/img-design-thinking.png';
 
-const Projects = () => {
+const Projects = (props) => {
+
+
+
+  const HandleProjDesc1 = (lang) => {
+    if (lang === 0) {
+      return "Este é um site que estou criando para ajudar minha esposa nos negócios dela. Ele se encontra em desenvolvimento."
+    } else {
+      return "This is a website I'm creating to help my wife with her small business. It is currently on hold for personal reasons."
+    }
+  }
+  const HandleProjDesc2 = (lang) => {
+    if (lang === 0) {
+      return "Este foi um projeto desenvolvido em grupo e a avaliação final do Fourcamp da Foursys."
+    } else {
+      return "This was a team project and also the final evaluation of Foursys' Fourcamp."
+    }
+  }
+  const HandleProjDesc3 = (lang) => {
+    if (lang === 0) {
+      return "Projeto individual de meu estágio na Foursys que tinha como objetivo contruir um blog." 
+    } else {
+      return "Individual project of my internship at Foursys that aimed at building a blog from scratch."
+    }
+  }
+  const HandleProjDesc4 = (lang) => {
+    if (lang === 0) {
+      return "Outro projeto individual da Foursys, desta vez o objetivo era criar um site de organização de grupos de trabalho e suas tarefas."
+    } else {
+      return "Another individual project at Foursys, this time the goal was to create a site for organizing working groups and their tasks."
+    }
+  }
+  const HandleProjDesc5 = (lang) => {
+    if (lang === 0) {
+      return "Dois projetos, um em grupo e outro individual de Design Thinking, tudo construído no website do Miro."
+    } else {
+      return "Two Design Thinking projects, one developed in a team and the the other done individualy, both built on Miro's website."
+    }
+  }
+
   return (
     <section id="projects">
       <div className="div-titulo-secao div-titulo-secao-projetos">
-        <h3 className="titulo-secao pt-br">Meus Projetos</h3>
-        <h3 className="titulo-secao eng">My Projects</h3>
+        <h3 className="titulo-secao pt-br">{props.Language === 0 ? "Meus Projetos" : "My Projects"}</h3>
       </div>
       {/*projeto 1*/}
       <div className="container-fluid container-projects">
@@ -21,10 +59,7 @@ const Projects = () => {
           <div className="col-6 description-div projects-description-div">
             <h4>Michele Bolsas Personalizadas</h4>
             <p className="description description-projects pt-br">
-              Este é um site que estou criando para ajudar minha esposa nos negócios dela. Ele se encontra em desenvolvimento.
-            </p>
-            <p className="description description-projects eng">
-              This is a website I'm creating to help my wife with her small business. It is currently under development.
+              {HandleProjDesc1(props.Language)}
             </p>
             <div className="techs techs-projects">
               <span className="badge rounded-pill text-bg-danger"><p className="white-pill">HTML</p></span>
@@ -47,10 +82,7 @@ const Projects = () => {
           <div className="col-6 description-div projects-description-div">
             <h4>Four Gold</h4>
               <p className="description description-projects pt-br">
-                Este foi um projeto desenvolvido em grupo e a avaliação final do Fourcamp da Foursys. 
-              </p>
-              <p className="description description-projects eng">
-                This was a team project and also the final evaluation of Foursys' Fourcamp.
+                {HandleProjDesc2(props.Language)}
               </p>
             <div className="techs techs-projects">
               <span className="badge rounded-pill text-bg-primary"><p className="white-pill">Asp.Net Core</p></span>
@@ -76,10 +108,7 @@ const Projects = () => {
           <div className="col-6 description-div projects-description-div">
             <h4>Four Blog</h4>
             <p className="description description-projects pt-br">
-              Projeto individual de meu estágio na Foursys que tinha como objetivo contruir um blog. 
-            </p>
-            <p className="description description-projects eng">
-              Individual project of my internship at Foursys that aimed at building a blog from scratch. 
+              {HandleProjDesc3(props.Language)}
             </p>
             <div className="techs techs-projects">
               <span className="badge rounded-pill text-bg-primary"><p className="white-pill">Asp.Net Core</p></span>
@@ -105,10 +134,7 @@ const Projects = () => {
           <div className="col-6 description-div projects-description-div">
             <h4>Four Task</h4>
             <p className="description description-projects pt-br">
-              Outro projeto individual da Foursys, desta vez o objetivo era criar um site de organização de grupos de trabalho e suas tarefas.  
-            </p>
-            <p className="description description-projects eng">
-              Another individual project at Foursys, this time the goal was to create a site for organizing working groups and their tasks.  
+              {HandleProjDesc4(props.Language)}
             </p>
             <div className="techs techs-projects">
               <span className="badge rounded-pill text-bg-primary"><p className="white-pill">Asp.Net Core</p></span>
@@ -134,10 +160,7 @@ const Projects = () => {
           <div className="col-6 description-div projects-description-div">
             <h4>Design Thinking</h4>
             <p className="description description-projects pt-br">
-              Dois projetos, um em grupo e outro individual de Design Thinking, tudo construído no website do Miro.
-            </p>
-            <p className="description description-projects eng">
-              Two Design Thinking projects, one developed in a team and the the other done individualy, both built on Miro's website.
+              {HandleProjDesc5(props.Language)}
             </p>
           </div>    
         </div>

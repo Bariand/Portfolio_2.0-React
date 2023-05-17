@@ -1,22 +1,31 @@
 import React from 'react'
 import MinhaFoto from './Images/minha-foto.jpg';
 
-const Description = () => {
+const Description = (props) => {
+
+  const HandleDescription = (lang) => {
+    if (lang === 0) {
+      return "Olá! Meu nome é Lucas Freitas Cordeiro, e sou estudante de Análise e Desenvolvimento de Sistemas pela UNIASSELVI e de Técnico em Eletrônica pelo CPET. Sou oriúndo de Pelotas, no estado do Rio Grande do Sul, Brasil. Também sou biólogo e escritor amador, mas mudei para a área de tecnologia em definitivo. Trabalhei por quase um ano na Foursys como estagiário .NET, onde frequentei o bootcamp da empresa e atuei tanto no front como no back-end. Acredito na ideia de que um produto bom é aquele que agrega valor à vida das pessoas. E então: vamos agregar juntos?" 
+    } else {
+      return " Hello! My name is Lucas Freitas Cordeiro and I am an Analysis and Systems Development student at UNIASSELVI University. I am a brazilian, from Pelotas, Rio Grande do Sul. I am a biologist, having transitioned into the area of technology for good, and I am also an amateur writer. I worked for almost a year at Foursys as a .NET intern, where I attended the company's bootcamp and worked as a front and back-end web developer. I believe in creating products that add value to the lives of other people. Now, let us start adding together?"
+    }
+  }
+
   return (
     <section id="about-me">
       <div className="div-titulo-secao">
-        <h3 className="titulo-secao pt-br">Quem sou?</h3>
-        <h3 className="titulo-secao eng">Who am I?</h3>
+        <h3 className="titulo-secao pt-br">{props.Language === 0? "Quem sou?" : "Who am I?"}</h3>
+        {/* <h3 className="titulo-secao eng">Who am I?</h3> */}
       </div>
       <div className="container-fluid">
         <div className="row item-row image-description-div">
           <div className="col-6 description-div" >               
             <p className="description main-description pt-br">
-              Olá! Meu nome é Lucas Freitas Cordeiro, e sou estudante de Análise e Desenvolvimento de Sistemas pela UNIASSELVI e de Técnico em Eletrônica pelo CPET. Sou oriúndo de Pelotas, no estado do Rio Grande do Sul, Brasil. Também sou biólogo e escritor amador, mas mudei para a área de tecnologia em definitivo. Trabalhei por quase um ano na Foursys como estagiário .NET, onde frequentei o bootcamp da empresa e atuei tanto no front como no back-end. Acredito na ideia de que um produto bom é aquele que agrega valor à vida das pessoas. E então: vamos agregar juntos?
+              {HandleDescription(props.Language)}
             </p>
-            <p className="description main-description eng">
-              Hello! My name is Lucas Freitas Cordeiro and I am an Analysis and Systems Development student at UNIASSELVI University. I am a brazilian, from Pelotas, Rio Grande do Sul. I am a biologist, having transitioned into the area of technology for good, and I am also an amateur writer. I worked for almost a year at Foursys as a .NET intern, where I attended the company's bootcamp and worked as a front and back-end web developer. I believe in creating products that add value to the lives of other people. Now, let us start adding together?
-            </p>
+            {/* <p className="description main-description eng">
+             Hello! My name is Lucas Freitas Cordeiro and I am an Analysis and Systems Development student at UNIASSELVI University. I am a brazilian, from Pelotas, Rio Grande do Sul. I am a biologist, having transitioned into the area of technology for good, and I am also an amateur writer. I worked for almost a year at Foursys as a .NET intern, where I attended the company's bootcamp and worked as a front and back-end web developer. I believe in creating products that add value to the lives of other people. Now, let us start adding together?
+            </p> */}
           </div>
           <div className="col-6 minha-foto-div">
             <img src={MinhaFoto} className="image my-image" alt="minha foto em semi-perfil disposta no canto direito da tela"/>

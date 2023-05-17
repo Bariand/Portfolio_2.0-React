@@ -3,17 +3,8 @@ import CogwheelIcon from "./Images/CogwheelIcon.jsx";
 import BrazilIcon from "./Images/brazilIcon.svg";
 import UkIcon from "./Images/uKIcon.svg";
 
-const Navbar = () => {
-  const [Language, SetLanguage] = useState(0);
-  const [DropDown, SetDropDown] = useState(1);
-
-  const HandleLanguage = () => {
-    if (Language === 0) {
-      return SetLanguage(1);
-    } else {
-      return SetLanguage(0);
-    }
-  };
+const Navbar = (props) => {
+  const [DropDown, SetDropDown] = useState(0);
 
   const HandleDropDown = () => {
     if (DropDown === 0) {
@@ -28,19 +19,19 @@ const Navbar = () => {
       <nav>
         <div className="intra-navbar-div left-menu">
           <a className="navbar-link" href="#section-header">
-            <p className="pt-br">{Language === 0 ? "Início" : "Home"}</p>
+            <p className="pt-br">{props.Language === 0 ? "Início" : "Home"}</p>
           </a>
           <a className="navbar-link" href="#about-me">
-            <p className="pt-br">{Language === 0 ? "Sobre" : "About"}</p>
+            <p className="pt-br">{props.Language === 0 ? "Sobre" : "About"}</p>
           </a>
           <a className="navbar-link" href="#projects">
-            <p className="pt-br">{Language === 0 ? "Projetos" : "Projects"}</p>
+            <p className="pt-br">{props.Language === 0 ? "Projetos" : "Projects"}</p>
           </a>
         </div>
         <div className="intra-navbar-div right-menu dropdown cog-menu">
           <span id="cog-span">
             <a className="navbar-link cog-link" onClick={HandleDropDown}>
-              <CogwheelIcon alt="ícone de uma roda dentada que abre o menu com propriedades da página" />
+              <CogwheelIcon alt="ícone de uma roda dentada que abre o menu com propriedades da página" className={DropDown === 0 ? "cog-img stop" : "cog-img rotate"} />
             </a>
           </span>
           <div className={DropDown === 0 ? "dropdown-content" : "dropdown-content show-dropdown"} id="cog-dropdown">
@@ -51,7 +42,7 @@ const Navbar = () => {
                   htmlFor="flex-switch-check1"
                 >
                   <p className="pt-br">
-                    {Language === 0 ? "-CRT Linhas-" : "-CRT Scanlines-"}
+                    {props.Language === 0 ? "-CRT Linhas-" : "-CRT Scanlines-"}
                   </p>
                 </label>
               </div>
@@ -75,7 +66,7 @@ const Navbar = () => {
                   htmlFor="flex-switch-check2"
                 >
                   <p className="pt-br">
-                    {Language === 0 ? "-CRT Efeito-" : "-CRT FX-"}
+                    {props.Language === 0 ? "-CRT Efeito-" : "-CRT FX-"}
                   </p>
                 </label>
               </div>
@@ -98,7 +89,7 @@ const Navbar = () => {
                   htmlFor="flex-switch-check3"
                 >
                   <p className="pt-br">
-                    {Language === 0 ? "-Linguagem-" : "-Language-"}
+                    {props.Language === 0 ? "-Linguagem-" : "-Language-"}
                   </p>
                 </label>
               </div>
@@ -111,9 +102,9 @@ const Navbar = () => {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  defaultChecked={true}
+                  defaultChecked={false}
                   id="flex-switch-check3"
-                  onChange={HandleLanguage}
+                  onChange={props.HandleLanguage}
                 />
                 <img
                   className="switch-text"

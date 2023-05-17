@@ -423,11 +423,19 @@ img {
 
 /*Dropdown cog animation*/
 
-#cog-img {
+CogWheelIcon {
   animation-name: cog-spin;
   animation-duration: 0s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+}
+
+CogWheelIcon .stop{
+  animation-duration: 0s;
+}
+
+CogWheelIcon .rotate{
+  animation-duration: 10s;
 }
 
 @keyframes cog-spin {
